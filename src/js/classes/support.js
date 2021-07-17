@@ -2,21 +2,22 @@
 import Character from './main';
 
 export default class Support extends Character {
-    set attack(cells) {
-        const k = 1 - (cells - 1) * 0.1;
-
-        this._attack *= k;
-        if (this.stoned) {
-            const debuff = Math.log2(cells) * 5;
-            this._attack -= debuff;
-        }
-        if (this._attack < 0) {
-            this._attack = 0;
-        }
+    set attack(value) {
+        this._attack = value;
     }
 
     get attack() {
-        return this._attack;
+        const k = 1 - (this.distance - 1) * 0.1;
+
+        let modAttack = this._attack * k;
+        if (this.stoned) {
+            const debuff = Math.log2(this.distance) * 5;
+            modAttack -= debuff;
+        }
+        if (modAttack < 0) {
+            return 0;
+        }
+        return modAttack;
     }
 
     set stoned(value) {

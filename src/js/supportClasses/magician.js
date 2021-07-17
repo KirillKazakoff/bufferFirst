@@ -4,6 +4,6 @@ export default class Magician extends Support {
     constructor(name) {
         super(name, 'Magician');
         this.defence = 40;
-        this._attack = 40;
+        this.attack = 40;
     }
 }

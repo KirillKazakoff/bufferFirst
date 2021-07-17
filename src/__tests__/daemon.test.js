@@ -3,26 +3,21 @@ import { Daemon } from '../js/classes/importAll';
 
 let daemon;
 beforeEach(() => {
-    daemon = new Daemon('Mag');
+    daemon = new Daemon('Zlo');
 });
 
 test('5 cells distance', () => {
-    daemon.attack = 2;
-    expect(daemon._attack).toBe(9);
+    daemon.distance = 5;
+    expect(daemon.attack).toBe(6);
 });
 
 test('10 cells distance', () => {
-    daemon.attack = 15;
-    expect(daemon._attack).toBe(0);
+    daemon.distance = 15;
+    expect(daemon.attack).toBe(0);
 });
 
 test('stoned char attack', () => {
     daemon.stoned = true;
-    daemon.attack = 2;
-    expect(daemon._attack.toFixed()).toBe('4');
-});
-
-test('get attack', () => {
-    daemon.attack = 2;
-    expect(daemon.attack).toBe(9);
+    daemon.distance = 5;
+    expect(daemon.attack.toFixed()).toBe('0');
 });

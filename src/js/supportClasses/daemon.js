@@ -4,6 +4,6 @@ export default class Daemon extends Support {
     constructor(name) {
         super(name, 'Daemon');
         this.defence = 40;
-        this._attack = 10;
+        this.attack = 10;
     }
 }
